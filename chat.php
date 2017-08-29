@@ -26,9 +26,9 @@ class Chat extends CI_Controller
                 'message'=> $msg_data->message,
                 'time' => $msg_data->time,
                 'read'=> $msg_data->read
-             );
-             $msg_id = $msg_data->id;
-             $this->chat_model->read_message($msg_id);
+            );
+            $msg_id = $msg_data->id;
+            $this->chat_model->read_message($msg_id);
         } else {
             return false;
         }
