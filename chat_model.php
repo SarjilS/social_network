@@ -5,7 +5,7 @@ if (!defined('BASEPATH')) {
 
 class chat_model extends CI_Model
 {
-    public function send_message($sender, $reciver, $msg)
+    public function send_message($sender, $receiver, $msg)
     {
         $this->load->database();
         $this->db->select('u_id');
@@ -15,7 +15,7 @@ class chat_model extends CI_Model
 
         $time = date('d/m/y').' '.date('h:i a');
         $message_data = array(
-            'to' => $reciver,
+            'to' => $receiver,
             'from' => $sender_id,
             'message' => $msg,
             'time' => $time
@@ -25,11 +25,11 @@ class chat_model extends CI_Model
     }
 
     /*
-    public function is_received($sender, $reciver)
+    public function is_received($sender, $receiver)
     {
         $this->load->database();
         $this->db->select('id');
-        $this->db->where('to', $reciver);
+        $this->db->where('to', $receiver);
         $this->db->where('from', $sender);
         $this->db->where('read', 0);
         $query = $this->db->get('chat');
@@ -38,10 +38,10 @@ class chat_model extends CI_Model
     }
     */
 
-    public function get_message($sender, $reciver)
+    public function get_message($sender, $receiver)
     {
         $this->load->database();
-        $this->db->where('to', $reciver);
+        $this->db->where('to', $receiver);
         $this->db->where('from', $sender);
         $this->db->where('read', 0);
         $this->db->order_by('id', 'DESC');

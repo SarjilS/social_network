@@ -7,21 +7,21 @@ class Chat extends CI_Controller
 {
     public function send_message()
     {
-        $reciver = $_POST['receiver'];
+        $receiver = $_POST['receiver'];
         $msg = htmlspecialchars($this->input->post('msg'));
         $sender = $this->session->userdata('user');
 
         $this->load->model('chat_model');
-        return ($this->chat_model->send_message($sender, $reciver, $msg)) ? true : false;
+        return ($this->chat_model->send_message($sender, $receiver, $msg)) ? true : false;
     }
 
     public function get_message()
     {
-        $reciver = $_POST['fid'];
+        $receiver = $_POST['fid'];
         $sender = $_POST['mid'];
 
         $this->load->model('chat_model');
-        if ($msg_data = $this->chat_model->get_message($sender, $reciver)) {
+        if ($msg_data = $this->chat_model->get_message($sender, $receiver)) {
             $data = array(
                 'message'=> $msg_data->message,
                 'time' => $msg_data->time,
