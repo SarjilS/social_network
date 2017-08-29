@@ -1,4 +1,7 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
 
 class chat_model extends CI_Model
 {
@@ -10,12 +13,12 @@ class chat_model extends CI_Model
         $query = $this->db->get('users');
         $sender_id = $query->row()->u_id;
 
-        $time = date("d/m/y")." ".date("h:i a");
-        $message_data= array(
-            'to'       => $reciver,
-            'from'    => $sender_id,
+        $time = date('d/m/y').' '.date('h:i a');
+        $message_data = array(
+            'to' => $reciver,
+            'from' => $sender_id,
             'message' => $msg,
-            'time'       => $time
+            'time' => $time
         );
 
         $this->db->insert('chat', $message_data);

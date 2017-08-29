@@ -1,6 +1,6 @@
 <?php
-    $con = mysql_connect('localhost','root','');
-    mysql_select_db('social_net', $con) or die('error in (application/view/chatting.php) at line 3');
+$con = mysql_connect('localhost', 'root', '');
+mysql_select_db('social_net', $con) or die('error in (application/view/chatting.php) at line 3');
 ?>
 <!DOCTYPE html>
 <html lang="en">

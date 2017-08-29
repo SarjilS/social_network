@@ -1,7 +1,10 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
 
-class Chat extends CI_Controller {
-
+class Chat extends CI_Controller
+{
     public function send_message()
     {
         $reciver = $_POST['receiver'];
@@ -9,14 +12,7 @@ class Chat extends CI_Controller {
         $sender = $this->session->userdata('user');
 
         $this->load->model('chat_model');
-        if($this->chat_model->send_message($sender, $reciver, $msg))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return ($this->chat_model->send_message($sender, $reciver, $msg)) ? true : false;
     }
 
     public function get_message()
@@ -25,8 +21,7 @@ class Chat extends CI_Controller {
         $sender = $_POST['mid'];
 
         $this->load->model('chat_model');
-        if($msg_data = $this->chat_model->get_message($sender, $reciver))
-        {
+        if ($msg_data = $this->chat_model->get_message($sender, $reciver)) {
             $data = array(
                 'message'=> $msg_data->message,
                 'time' => $msg_data->time,
@@ -34,9 +29,7 @@ class Chat extends CI_Controller {
              );
              $msg_id = $msg_data->id;
              $this->chat_model->read_message($msg_id);
-        }
-        else
-        {
+        } else {
             return false;
         }
 
