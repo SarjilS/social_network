@@ -1,4 +1,4 @@
-<?
+<?php
     $con = mysql_connect('localhost','root','');
     mysql_select_db('social_net', $con) or die('error in (application/view/chatting.php) at line 3');
 ?>
@@ -179,7 +179,7 @@
     </script>
   </head>
   <body>
-  <?
+  <?php
     $user_name = $this->session->userdata('user');
     $sql1 = "SELECT * FROM users WHERE user_name='$user_name'";
     $query1 = mysql_query($sql1);
@@ -194,7 +194,7 @@
   <div class="chat_box">
     <div class="chat_head"><i class="fa fa-comments" aria-hidden="true"></i> Chat</div>
     <div style="display: none;" class="chat_body">
-    <?
+    <?php
     if($count!=0)
     {
         $i=1;
@@ -202,7 +202,7 @@
         {
             ?>
                 <div class="user" id="u<?=$i?>" style="text-transform:capitalize"><span class="user-<?=$row['logged_in'];?>"></span><?=$row['f_name'].' '.$row['l_name']?></div>
-            <?
+            <?php
             $i++;
         }
     }
@@ -210,14 +210,14 @@
     {
         ?>
         <a href='<?=base_url()?>find_friends' id='finfrndslink'>Find Friends</a>
-        <?
+        <?php
     }
     ?>
     </div>
 
   </div>
   <div class="chatbox-holder">
-  <?
+  <?php
     $i=1;
         while($row1 = mysql_fetch_assoc($query3))
         {
@@ -295,7 +295,7 @@
                     </div>
                     <div class="msg_wrap" id="mw<?=$i?>">
                         <div class="msg_body" id="msg_body<?=$i?>">
-                            <?
+                            <?php
                                 $from = $row1['u_id'];
                                 $msql = "SELECT * FROM `chat` WHERE (`to`=$u_id && `from`=$from) or (`to`=$from && `from`=$u_id) order by id";
                                 $mqry = mysql_query($msql);
@@ -305,13 +305,13 @@
                                     {
                                         ?>
                                             <div class="msg_a"><?=$mrow['message']?></div>
-                                        <?
+                                        <?php
                                     }
                                     else
                                     {
                                         ?>
                                             <div class="msg_b"><?=$mrow['message']?></div>
-                                        <?
+                                        <?php
                                     }
                                 }
                             ?>
@@ -320,7 +320,7 @@
                     <div class="msg_footer"><textarea class="msg_input" id="ti<?=$i?>" placeholder="write your message here" rows="2"></textarea></div>
                     </div>
                 </div>
-            <?
+            <?php
             $i++;
         }
     ?>
