@@ -15,132 +15,128 @@
     <title>Facebook like chat</title>
     <link href="style.css" rel="stylesheet">
     <style>
-
 .chatbox-holder {
-  position: fixed;
-  right: 290px;
-  bottom: 0;
-  display: flex;
-  align-items: flex-end;
-  height: 0;
+    position: fixed;
+    right: 290px;
+    bottom: 0;
+    display: flex;
+    align-items: flex-end;
+    height: 0;
 }
-.chat_box{
-    position:fixed;
-    right:20px;
-    bottom:0px;
-    width:250px;
+.chat_box {
+    position: fixed;
+    right: 20px;
+    bottom: 0px;
+    width: 250px;
 }
-.chat_body{
-    background:white;
-    height:400px;
-    overflow:auto;
+.chat_body {
+    background: white;
+    height: 400px;
+    overflow: auto;
     overflow-x: hidden;
     border-right: 1px solid rgba(0, 0, 0, 0.28);
     border-left: 1px solid rgba(0, 0, 0, 0.28);
-    padding:5px 0px;
+    padding: 5px 0px;
 }
-
-.chat_head,.msg_head{
-    background:#f39c12;
-    color:white;
-    padding:5px 15px;
-    -moz-user-select:none;
-    user-select:none;
-    font-weight:bold;
-    cursor:pointer;
-    border-radius:5px 5px 0px 0px;
-}
-
-.chat_head{
-    padding:5px;
-}
-.msg_box{
-    bottom:-5px;
-    display:none;
-    margin-right:5px;
-    width:250px;
-    background:white;
-    border-radius:5px 5px 0px 0px;
-}
-
-.msg_head{
-    font-weight: normal;
-    background:#4080ff none repeat scroll 0% 0%;
-    -moz-user-select:none;
-    user-select:none;
-    overflow:hidden;
-}
-
-.msg_body{
-    border-right: 1px solid rgba(0, 0, 0, 0.28);
-    border-left: 1px solid rgba(0, 0, 0, 0.28);
-    height:220px;
-    padding:8px;
-    overflow:auto;
-    overflow-x: hidden;
-}
-.msg_input{
-    width:100%;
-    border: 1px solid white;
-    border-top:1px solid #DDDDDD;
-    border-right: 1px solid rgba(0, 0, 0, 0.28);
-    border-left: 1px solid rgba(0, 0, 0, 0.28);
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;
-    resize:none;
-}
-
-.close{
-    float:right;
+.chat_head,
+.msg_head {
+    background: #f39c12;
+    color: white;
+    padding: 5px 15px;
+    -moz-user-select: none;
+    user-select: none;
     font-weight: bold;
-    margin:-15px;
-    border-radius:0px 5px 0px 0px;
-    padding:15px;
-    -moz-user-select:none;
-    user-select:none;
-    cursor:pointer;
+    cursor: pointer;
+    border-radius: 5px 5px 0px 0px;
 }
-.minimize{
-    float:right;
-    cursor:pointer;
-    padding-right:5px;
-
+.chat_head {
+    padding: 5px;
 }
-
-.user{
-    position:relative;
-    padding:10px 30px;
+.msg_box {
+    bottom: -5px;
+    display: none;
+    margin-right: 5px;
+    width: 250px;
+    background: white;
+    border-radius: 5px 5px 0px 0px;
 }
-.user:hover{
-    background:#f8f8f8;
-    cursor:pointer;
-
+.msg_head {
+    font-weight: normal;
+    background: #4080ff none repeat scroll 0% 0%;
+    -moz-user-select: none;
+    user-select: none;
+    overflow: hidden;
 }
-.user-0{
-    content:'';
-    position:absolute;
-    background:#535a56;
-    height:7px;
-    width:7px;
-    left:10px;
-    top:18px;
-    border-radius:4px;
+.msg_body {
+    border-right: 1px solid rgba(0, 0, 0, 0.28);
+    border-left: 1px solid rgba(0, 0, 0, 0.28);
+    height: 220px;
+    padding: 8px;
+    overflow: auto;
+    overflow-x: hidden;
 }
-.user-1{
-    content:'';
-    position:absolute;
-    background:#2ecc71;
-    height:7px;
-    width:7px;
-    left:10px;
-    top:18px;
-    border-radius:4px;
+.msg_input {
+    width: 100%;
+    border: 1px solid white;
+    border-top: 1px solid #DDDDDD;
+    border-right: 1px solid rgba(0, 0, 0, 0.28);
+    border-left: 1px solid rgba(0, 0, 0, 0.28);
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    
+    box-sizing: border-box;
+    resize: none;
 }
-
-.msg_a, .msg_b{
+.close {
+    float: right;
+    font-weight: bold;
+    margin: -15px;
+    border-radius: 0px 5px 0px 0px;
+    padding: 15px;
+    -moz-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+.minimize {
+    float: right;
+    cursor: pointer;
+    padding-right: 5px;
+}
+.user {
+    position: relative;
+    padding: 10px 30px;
+}
+.user:hover {
+    background: #f8f8f8;
+    cursor: pointer;
+}
+.user-0 {
+    content: '';
+    position: absolute;
+    background: #535a56;
+    height: 7px;
+    width: 7px;
+    left: 10px;
+    top: 18px;
+    border-radius: 4px;
+}
+.user-1 {
+    content: '';
+    position: absolute;
+    background: #2ecc71;
+    height: 7px;
+    width: 7px;
+    left: 10px;
+    top: 18px;
+    border-radius: 4px;
+}
+.msg_a,
+.msg_b {
     word-wrap: break-word;
-    cursor:default;
+    cursor: default;
     margin: 0 0 0.5em;
     border-radius: 1em;
     padding: 0.3em 1em;
@@ -149,23 +145,22 @@
     word-wrap: break-word;
     clear: both;
     position: relative;
-    color:black;
+    color: black;
     font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-.msg_a{
-    float:left;
+.msg_a {
+    float: left;
 }
-.msg_b{
+.msg_b {
     background-color: #1289fe;
-    float:right;
+    float: right;
     color: white;
 }
-#finfrndslink
-{
-    display:block;
-    padding:.6em;
-    margin:0px auto;
-    width:94%;
+#finfrndslink {
+    display: block;
+    padding: .6em;
+    margin: 0px auto;
+    width: 94%;
     margin-top: 10em;
     background: rgb(54, 42, 42) none repeat scroll 0% 0%;
     text-align: center;
