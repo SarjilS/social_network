@@ -1,6 +1,6 @@
-<?
-	$con = mysql_connect('localhost','root','');
-	mysql_select_db('social_net', $con) or die('error in (application/view/chatting.php) at line 3');
+<?php
+$con = mysql_connect('localhost','root','');
+mysql_select_db('social_net', $con) or die('error in (application/view/chatting.php) at line 3');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,15 +14,14 @@
 
     <title>Facebook like chat</title>
     <link href="style.css" rel="stylesheet">
-    <style>
-	
+<style>
 .chatbox-holder {
-  position: fixed;
-  right: 290px;
-  bottom: 0;
-  display: flex;
-  align-items: flex-end;
-  height: 0;
+	position: fixed;
+	right: 290px;
+	bottom: 0;
+	display: flex;
+	align-items: flex-end;
+	height: 0;
 }
 .chat_box{
 	position:fixed;
@@ -39,7 +38,6 @@
 	border-left: 1px solid rgba(0, 0, 0, 0.28);
 	padding:5px 0px;
 }
-
 .chat_head,.msg_head{
 	background:#f39c12;
 	color:white;
@@ -50,7 +48,6 @@
 	cursor:pointer;
 	border-radius:5px 5px 0px 0px;
 }
-
 .chat_head{
 	padding:5px;
 }
@@ -62,7 +59,6 @@
 	background:white;
 	border-radius:5px 5px 0px 0px;
 }
-
 .msg_head{
 	font-weight: normal;
 	background:#4080ff none repeat scroll 0% 0%;
@@ -70,7 +66,6 @@
 	user-select:none;
 	overflow:hidden;
 }
-
 .msg_body{
 	border-right: 1px solid rgba(0, 0, 0, 0.28);
 	border-left: 1px solid rgba(0, 0, 0, 0.28);
@@ -90,7 +85,6 @@
 	box-sizing: border-box; 
 	resize:none;
 }
-
 .close{
 	float:right;
 	font-weight: bold;
@@ -107,7 +101,6 @@
 	padding-right:5px;
 	
 }
-
 .user{
 	position:relative;
 	padding:10px 30px;
@@ -137,7 +130,6 @@
 	top:18px;
 	border-radius:4px;
 }
-
 .msg_a, .msg_b{
 	word-wrap: break-word;
 	cursor:default;
@@ -172,8 +164,8 @@
 	color: white;
 	border-radius: 5px;
 }
-    </style>
-	   <script src="<?=base_url().'assets/js/jquery-1.10.1.min.js'?>"></script>
+</style>
+	<script src="<?=base_url().'assets/js/jquery-1.10.1.min.js'?>"></script>
     <script>
 	$(document).ready(function(){
 		$('.msg_box').hide();
@@ -184,7 +176,7 @@
 	</script>
   </head>
   <body>
-  <?
+  <?php
 	$user_name = $this->session->userdata('user');
 	$sql1 = "SELECT * FROM users WHERE user_name='$user_name'";
 	$query1 = mysql_query($sql1);
@@ -199,7 +191,7 @@
   <div class="chat_box">
 	<div class="chat_head"><i class="fa fa-comments" aria-hidden="true"></i> Chat</div>
 	<div style="display: none;" class="chat_body">  
-	<?
+	<?php
 	if($count!=0)
 	{
 		$i=1;
@@ -207,7 +199,7 @@
 		{
 			?>
 				<div class="user" id="u<?=$i?>" style="text-transform:capitalize"><span class="user-<?=$row['logged_in'];?>"></span><?=$row['f_name'].' '.$row['l_name']?></div>
-			<?
+			<?php
 			$i++;
 		}
 	}
@@ -215,14 +207,14 @@
 	{
 		?>
 		<a href='<?=base_url()?>find_friends' id='finfrndslink'>Find Friends</a>
-		<?
+		<?php
 	}
 	?>
 	</div>
 	
   </div>
   <div class="chatbox-holder">
-  <?
+  <?php
 	$i=1;
 		while($row1 = mysql_fetch_assoc($query3))
 		{
@@ -300,7 +292,7 @@
 					</div>
 					<div class="msg_wrap" id="mw<?=$i?>">
 						<div class="msg_body" id="msg_body<?=$i?>">	
-							<?
+							<?php
 								$from = $row1['u_id'];
 								$msql = "SELECT * FROM `chat` WHERE (`to`=$u_id && `from`=$from) or (`to`=$from && `from`=$u_id) order by id";
 								$mqry = mysql_query($msql);
@@ -310,13 +302,13 @@
 									{
 										?>
 											<div class="msg_a"><?=$mrow['message']?></div>
-										<?
+										<?php
 									}
 									else
 									{
 										?>
 											<div class="msg_b"><?=$mrow['message']?></div>
-										<?
+										<?php
 									}
 								}
 							?>
